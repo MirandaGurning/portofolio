@@ -445,11 +445,10 @@ nav.scrolled {
 
 /* FOTO */
 .profile-photo{
-    width:100%;
+    width:170%;
     height:100%;
+    margin-left:-55%;
     object-fit:cover;
-    background:#111;
-    object-position:right center;
 }
 .hero-photo-frame:hover .profile-photo{
     transform:scale(1.05);
