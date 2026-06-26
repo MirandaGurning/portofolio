@@ -266,15 +266,14 @@ nav.scrolled {
 /* =============================================
    HERO
    ============================================= */
-#hero {
-  min-height: 100svh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 6rem var(--pad-x) 3rem;
-  position: relative;
-  overflow: hidden;
-  gap: 3rem;
+#hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:55% 45%;
+    align-items:center;
+    gap:70px;
+    padding:110px 80px;
+
 }
 
 .hero-bg-text {
@@ -330,14 +329,9 @@ nav.scrolled {
   50% { opacity: 0.3; }
 }
 
-.hero-name {
-  font-family: var(--serif);
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
-  line-height: 1.0;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.4s forwards;
+.hero-name{
+    font-size:95px;
+    line-height:88px;
 }
 
 .hero-name em {
@@ -345,32 +339,23 @@ nav.scrolled {
   font-style: italic;
 }
 
-.hero-role {
-  font-family: var(--serif);
-  font-size: clamp(1.1rem, 2.5vw, 2rem);
-  color: var(--fg2);
-  font-style: italic;
-  margin-bottom: var(--space-md);
-  opacity: 0;
-  animation: fadeUp 0.8s 0.6s forwards;
+.hero-role{
+    font-size:48px;
+    color:#c8b560;
+    margin-top:15px;
 }
 
-.hero-desc {
-  font-size: 0.95rem;
-  color: var(--fg2);
-  line-height: 1.85;
-  max-width: 440px;
-  margin-bottom: var(--space-lg);
-  opacity: 0;
-  animation: fadeUp 0.8s 0.8s forwards;
+.hero-desc{
+    margin-top:25px;
+    font-size:18px;
+    line-height:34px;
+    max-width:520px;
 }
 
-.hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  opacity: 0;
-  animation: fadeUp 0.8s 1s forwards;
+.hero-cta{
+    margin-top:45px;
+    display:flex;
+    gap:20px;
 }
 
 .btn-primary {
@@ -410,71 +395,86 @@ nav.scrolled {
 }
 
 /* Hero photo */
-.hero-right {
-  position: relative; z-index: 2;
-  display: flex;
-  justify-content: flex-end;
-  opacity: 0;
-  animation: fadeIn 1s 0.5s forwards;
+/* ===========================
+   HERO PHOTO
+=========================== */
+
+.hero-right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
 }
 
-.hero-photo-frame {
-  width: clamp(220px, 32vw, 400px);
-  aspect-ratio: 3 / 4;
-  position: relative;
+/* Glow */
+
+.hero-right::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    background:#c8b560;
+
+    border-radius:50%;
+
+    filter:blur(140px);
+
+    opacity:.12;
+
+    z-index:0;
+
 }
 
-.photo-placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, #1a1a15, #222218);
-  border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: var(--fg2);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+/* Frame */
+.hero-photo-frame{
+
+    width:340px;
+    height:470px;
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
+    border:1px solid rgba(200,181,96,.25);
+    background:#171717;
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45),
+        0 0 35px rgba(200,181,96,.12);
+    z-index:2;
+    transition:.5s;
+}
+.hero-photo-frame:hover{
+    transform:translateY(-10px);
 }
 
-.photo-placeholder svg { opacity: 0.3; }
-
-.hero-photo-frame::after {
-  content: '';
-  position: absolute;
-  bottom: -12px; right: -12px;
-  width: 100%; height: 100%;
-  border: 1px solid rgba(200, 181, 96, 0.12);
-  pointer-events: none;
-  z-index: -1;
+/* FOTO */
+.profile-photo{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center top;
+    transition:.5s;
 }
-
-/* Scroll indicator */
-.hero-scroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  color: var(--fg2);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  opacity: 0;
-  animation: fadeIn 1s 1.4s forwards;
+.hero-photo-frame:hover .profile-photo{
+    transform:scale(1.05);
 }
-
-.scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: scrollPulse 2s infinite;
+/* Border luar */
+.hero-photo-frame::after{
+    content:"";
+    position:absolute;
+    inset:-14px;
+    border:1px solid rgba(200,181,96,.15);
+    border-radius:36px;
+    z-index:-1;
 }
 
 /* =============================================
