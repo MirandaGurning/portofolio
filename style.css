@@ -114,16 +114,21 @@ body::before {
 /* =============================================
    NAVIGATION
    ============================================= */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 500;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-md) var(--pad-x);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s, background 0.3s;
+nav{
+
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:80px;
+    padding:0 60px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(10,10,8,.85);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(200,181,96,.12);
+    z-index:999;
 }
 
 nav.scrolled {
@@ -291,7 +296,9 @@ nav.scrolled {
   user-select: none;
 }
 
-.hero-left { position: relative; z-index: 2; }
+.hero-left { 
+  max-width:600px; 
+}
 
 .hero-tag {
   font-family: var(--mono);
@@ -331,8 +338,8 @@ nav.scrolled {
 }
 
 .hero-name{
-    font-size:95px;
-    line-height:88px;
+    font-size:90px;
+    line-height:90px;
 }
 
 .hero-name em {
@@ -446,6 +453,31 @@ nav.scrolled {
 }
 .hero-photo-frame:hover .profile-photo{
     transform:scale(1.05);
+}
+
+.hero-right::after{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    background:#c8b560;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.12;
+    z-index:-1;
+
+}
+
+.hero-photo-frame::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(10,10,8,.45),
+        rgba(10,10,8,.05)
+    );
+    z-index:1;
 }
 /* Border luar */
 .hero-photo-frame::after{
