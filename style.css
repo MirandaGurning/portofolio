@@ -448,13 +448,11 @@ nav.scrolled {
 
     position:absolute;
 
-    right:-250px;
+    right:-280px;
 
-    top:-20px;
+    bottom:0;
 
-    height:110%;
-
-    width:auto;
+    height:120%;
 
 }
 .hero-photo-frame:hover .profile-photo{
